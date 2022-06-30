@@ -1,4 +1,4 @@
-package vttp2022.shoppingcart;
+package vttp2022.shoppingcart.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 
-public class Session {
+public class Session implements Runnable{
     
     // properties
     private Repository sessionRepo;
@@ -21,10 +21,15 @@ public class Session {
         this.sessionSock = sock;
     }
 
-    // you will only need to do this if you need to construct a something
-    // public Session (Cart cart) { 
-    //     this.sessionCart = cart;
-    // }
+    @Override
+    public void run () {
+        try { 
+            start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
  
     // methods
     public void start () throws IOException {
