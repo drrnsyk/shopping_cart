@@ -20,7 +20,6 @@ public class Repository {
         this.repoDirectory = directory; 
     }
 
-
     // methods
     public void open () {
         File dir = new File(repoDirectory);
@@ -32,6 +31,7 @@ public class Repository {
         System.out.printf("Using %s directory for persistence\n" , repoDirectory);
         int fileCount = dir.list().length; // count the number of files in the directory folder
         System.out.printf("There are %d carts in %s directory\n" , fileCount, repoDirectory);
+        System.out.println("Connection received...");
     }
 
     public void loadFile (String userName) throws IOException {

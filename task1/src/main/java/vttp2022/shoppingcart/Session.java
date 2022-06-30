@@ -27,6 +27,16 @@ public class Session {
         Console cons = System.console();
         String userInput = cons.readLine(">>>>> Please input \"username\" | command = \"load\" <<<<<\nEnter command: "); // read in user input from console
         String[] inputArray = userInput.split(" "); // split the user input string into an string array
+        
+        System.out.println();
+        
+        while (!inputArray[0].equalsIgnoreCase("LOAD")) {
+            System.out.println("Please enter a valid command or username!");
+            userInput = cons.readLine(">>>>> Please input \"username\" | command = \"load\" <<<<<\nEnter command: ");
+            inputArray = userInput.split(" ");
+            System.out.println();
+        }
+        
 
         sessionCart = new Cart(inputArray[1]); // ** remember to initialise sessionCart **
 
